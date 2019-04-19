@@ -146,7 +146,7 @@
           </div>
 
           <div id="hovr" class="form-group col-xs-12" style="text-align:right; margin-right:1.5%;">
-          <button type="submit" class="btn" name="loginbutton" class="float-right">Login</button>
+          <button style="color: #f7f8f3 !important;background-color: #281859 !important;" type="submit" class="btn" name="loginbutton" class="float-right">Login</button>
             </div>
 
 
@@ -221,6 +221,7 @@
 				$compdet=$row['complaintdetail'];
 				$sta=$row['status'];
 				$dat=$row['dates'];
+				$incharge=$row['incharge'];
 
 				?>
 
@@ -325,6 +326,18 @@
 
 </tr>
 
+<tr>
+  <td colspan="">
+    <label>Officer Incharge
+      <!-- <font color="RED">*</font> -->
+
+    </label>
+    </td>
+
+    <td colspan=""><?php echo $incharge; ?></td>
+
+</tr>
+
 
 </tbody>
 </table>
@@ -337,6 +350,9 @@
 				 <?php
 			}
 
+	}
+	else {
+		header("Location:status.php");
 	}
 
 ?>

@@ -1,4 +1,4 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -174,6 +174,9 @@ button:hover{
 
 		}
 	}
+	else {
+		header("Location:index.php");
+	}
 ?>
 
 
@@ -214,7 +217,7 @@ button:hover{
 
 		<?php
 
-			$sql="SELECT * FROM lodgecomplaint WHERE  policestation='$police'";
+			$sql="SELECT * FROM lodgecomplaint WHERE  dist='$police'";
 			$result=mysqli_query($conn,$sql);
 			$resultcheck=mysqli_num_rows($result);
 			if($resultcheck > 0)
@@ -288,8 +291,9 @@ button:hover{
 		<?php
 			if(isset($_POST['accept']))
 			{
+				$name=$desig.". ".$fname." ".$lname;
 				$val=$_POST['id'];
-				$sql="UPDATE lodgecomplaint SET status='Approved' WHERE complaint_id='$val'";
+				$sql="UPDATE lodgecomplaint SET status='Approved', incharge='$name' WHERE complaint_id='$val'";
 				mysqli_query($conn,$sql);
 				echo '<script type="text/javascript">
 				alert("Approved Successfully");
@@ -301,8 +305,9 @@ I
 			}
 			if(isset($_POST['reject']))
 			{
+				$name=$desig.". ".$fname." ".$lname;
 				$val=$_POST['id'];
-				$sql="UPDATE lodgecomplaint SET status='Rejected' WHERE complaint_id='$val'";
+				$sql="UPDATE lodgecomplaint SET status='Rejected', incharge='$name' WHERE complaint_id='$val'";
 				mysqli_query($conn,$sql);
 				echo '<script type="text/javascript">
 				alert("Complaint Rejected!");

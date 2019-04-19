@@ -39,11 +39,12 @@
       $subject=mysqli_real_escape_string($conn,$_POST['subject']);
       $compdetail=mysqli_real_escape_string($conn,$_POST['compdetail']);
       $pend="pending";
+      $incharge="none";
       $date= date("Y-m-d",strtotime($_POST['dates']));
       // $val=mysqli_real_escape_string($conn,$_POST['user']);
 
 
-      $sql="INSERT INTO lodgecomplaint(fname,midname,lastname,gender,age,address,pincode,email,contact,idproof,iddetail,dist,policestation,place,subject,complaintdetail,status,dates) VALUES('$fname','$mname','$lname','$gend','$age','$add','$pin','$mail','$contact','$idproof','$iddetail','$district','$policestat','$place','$subject','$compdetail','$pend','$date')";
+      $sql="INSERT INTO lodgecomplaint(fname,midname,lastname,gender,age,address,pincode,email,contact,idproof,iddetail,dist,policestation,place,subject,complaintdetail,status,dates,incharge) VALUES('$fname','$mname','$lname','$gend','$age','$add','$pin','$mail','$contact','$idproof','$iddetail','$district','$policestat','$place','$subject','$compdetail','$pend','$date','$incharge')";
 
         mysqli_query($conn,$sql);
 
@@ -633,33 +634,34 @@ Allowed file types: .pdf, .jpg.
 
           <td colspan="1">
 
-            <!-- <script type="text/javascript">
+             <script type="text/javascript">
               $(document).ready(function () {
-                $("#dist_id").change(function () {
+                $("#cityDistrictcode").change(function () {
                     var val = $(this).val();
-                    if (val == "ahmdc") {
-                        $("#stn_id").html("<option value='-1'>- Select -</option><option value='27'>Aslali</option><option value='31'>Bagodara</option><option value='31'>Bavla</option><option value='104'>Bopal</option><option value='1005'>Changodar</option><option value='42'>Detroj</option><option value='34'>Dhandhuka</option><option value='35'>Dholera</option><option value='30'>Dholka</option><option value='1058'>Dholka Rural</option><option value='26'>Kanbha</option><option value='32'>Koth</option><option value='11'>Mahila Police Station, Ahmedabad Rural</option><option value='41'>Mandal</option><option value='29'>Sanand</option><option value='1056'>Sanand GIDC</option><option value='2028'>Viramgam Railway</option><option value='39'>Viramgam Rural</option><option value='38'>Viramgam Town</option><option value='40'>Vitthalapur</option><option value='1054'>Vivekanand</option>");
-                    } else if (val == "ahmdr") {
-                        $("#stn_id").html("<option value='-1'>- Select -</option><option value='27'>Aslali</option><option value='31'>Bagodara</option><option value='31'>Bavla</option><option value='104'>Bopal</option><option value='1005'>Changodar</option><option value='42'>Detroj</option><option value='34'>Dhandhuka</option><option value='35'>Dholera</option><option value='30'>Dholka</option><option value='1058'>Dholka Rural</option><option value='26'>Kanbha</option><option value='32'>Koth</option><option value='11'>Mahila Police Station, Ahmedabad Rural</option><option value='41'>Mandal</option><option value='29'>Sanand</option><option value='1056'>Sanand GIDC</option><option value='2028'>Viramgam Railway</option><option value='39'>Viramgam Rural</option><option value='38'>Viramgam Town</option><option value='40'>Vitthalapur</option><option value='1054'>Vivekanand</option>");
-                    } else if (val == "val") {
-                        $("#stn_id").html("<option value='-1'>- Select -</option><option value='1880'>Bhilad</option><option value='1880'>DharamPur</option><option value='1880'>Dungara</option><option value='1880'>Dungri</option><option value='1880'>Kaprada</option><option value='1880'>Mahila Police Station, Valsad</option><option value='1880'>Nanapondha</option><option value='1880'>Pardi</option><option value='1880'>Umargam</option><option value='1880'>Umargam Marin</option><option value='1880'>Valsad ACB Police Station</option><option value='1880'>Valsad Railway</option><option value='1880'>Valsad Rural</option><option value='1880'>Valsad Town</option><option value='1880'>Vapi GIDC</option><option value='1880'>Vapi Town</option>");
-                    } else if (val == "anand") {
-                        $("#stn_id").html(" <option value='-1'>- Select -</option><option value='1'>Anand ACB Police Station</option><option value='1'>Anand Railway</option><option value='1'>Anand Rural</option><option value='1'>Anand Town</option><option value='1'>Anklav</option><option value='1'>Bhadran</option><option value='1'>Bhalej</option><option value='1'>Borsad City</option><option value='1'>Borsad Rural</option><option value='1'>Khambhat City</option><option value='1'>Khambhat Rural</option><option value='1'>Khambholaj</option><option value='1'>Mahelav</option><option value='1'>Mahila Police Station, Anand</option><option value='1'>Petlad Rural</option><option value='1'>Petlad Town</option><option value='1'>Sojitra</option><option value='1'>Tarapur</option><option value='1'>Umreth</option><option value='1'>Vasad</option><option value='1'>Vidyanagar</option><option value='1'>Virsad</option>");
+                    if (val == "Ahmedabad City") {
+                        $("#PoStationName").html("<option value='-1'>- Select -</option><option value='Amraiwadi'>Amraiwadi</option><option value='Bapu Nagar'>Bapu Nagar</option><option value='Chandkheda'>Chandkheda</option><option value='Dariyapur'>Dariyapur</option><option value='Gujarat University'>Gujarat University</option><option value='Ishanpur'>Ishanpur</option><option value='Kalupur'>Kalupur</option><option value='Karanj'>Karanj</option><option value='Maninagar'>Maninagar</option><option value='Navrangpura'>Navrangpura</option><option value='Narangpura'>Narangpura</option><option value='Sabarmati'>Sabarmati</option><option value='Sarkhej'>Sarkhej</option><option value='Vastrapur'>Vastrapur</option><option value='Vatva'>Vatva</option>");
+                    } else if (val == "Ahmedabad Rural") {
+                        $("#PoStationName").html("<option value='-1'>- Select -</option><option value='Aslali'>Aslali</option><option value='Bagodara'>Bagodara</option><option value='Bavla'>Bavla</option><option value='Changodar'>Changodar</option><option value='Detroj'>Detroj</option><option value='Dhandhuka'>Dhandhuka</option><option value='Dholera'>Dholera</option><option value='Dholka'>Dholka</option><option value='Kanbha'>Kanbha</option><option value='Koth'>Koth</option><option value='Mahila Police Station, Ahmedabad Rural'>Mahila Police Station, Ahmedabad Rural</option><option value='Mandal'>Mandal</option><option value='Sanand'>Sanand</option><option value='Sanand GIDC'>Sanand GIDC</option><option value='Viramgam Railway'>Viramgam Railway</option><option value='Viramgam Town'>Viramgam Town</option><option value='Vitthalapur'>Vitthalapur</option><option value='Vivekanand'>Vivekanand</option>");
+                    } else if (val == "Valsad") {
+                        $("#PoStationName").html("<option value='-1'>- Select -</option><option value='Bhilad'>Bhilad</option><option value='DharamPur'>DharamPur</option><option value='Dungara'>Dungara</option><option value='Dungri'>Dungri</option><option value='Kaprada'>Kaprada</option><option value='Mahila Police Station, Valsad'>Mahila Police Station, Valsad</option><option value='Nanapondha'>Nanapondha</option><option value='Pardi'>Pardi</option><option value='Umargam'>Umargam</option><option value='Valsad ACB Police Station'>Valsad ACB Police Station</option><option value='Valsad Railway'>Valsad Railway</option><option value='Valsad Rural'>Valsad Rural</option><option value='Valsad Town'>Valsad Town</option><option value='Vapi GIDC'>Vapi GIDC</option><option value='Vapi Town'>Vapi Town</option>");
+                    } else if (val == "Anand") {
+                        $("#PoStationName").html(" <option value='-1'>- Select -</option><option value='Anand ACB Police Station'>Anand ACB Police Station</option><option value='Anand Rural'>Anand Rural</option><option value='Anand Town'>Anand Town</option><option value='Anklav'>Anklav</option><option value='Bhadran'>Bhadran</option><option value='Bhalej'>Bhalej</option><option value='Borsad'>Borsad</option><option value='Khambhat'>Khambhat</option><option value='Khambholaj'>Khambholaj</option><option value='Mahelav'>Mahelav</option><option value='Mahila Police Station, Anand'>Mahila Police Station, Anand</option><option value='Petlad'>Petlad</option><option value='Sojitra'>Sojitra</option><option value='Tarapur'>Tarapur</option><option value='Umreth'>Umreth</option><option value='Vasad'>Vasad</option><option value='Vidyanagar'>Vidyanagar</option><option value='Virsad'>Virsad</option>");
                     } else if (val == "-1") {
-                        $("#stn_id").html("<option value=''>--select one--</option>");
+                        $("#PoStationName").html("<option value=''>--select one--</option>");
                     }
+
                 });
             });
             </script>
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
- -->
-          <select  id="cityDistrictcode" name="district" style="" type="select-one">
 
-          <option  value="ahmdc">Ahmedabad City</option>
+          <select  id="cityDistrictcode" name="district" style="" type="select-one">
+            <option value="-1">- Select -</option>
+          <option  value="Ahmedabad City">Ahmedabad City</option>
         <option value="Ahmedabad Rural">Ahmedabad Rural</option>
         <option value="Amreli">Amreli</option>
-        <option value="anand">Anand</option>
+        <option value="Anand">Anand</option>
         <option value="Arvalli">Arvalli</option>
         <option value="Banaskantha">Banaskantha</option>
         <option value="Bharuch">Bharuch</option>
@@ -688,7 +690,7 @@ Allowed file types: .pdf, .jpg.
         <option value="Rajkot Rural">Rajkot Rural</option>
         <option value="Sabarkantha">Sabarkantha</option>
         <option value="Surat City">Surat City</option>
-        <option value="urat Rural">Surat Rural</option>
+        <option value="Surat Rural">Surat Rural</option>
         <option value="Surendranagar">Surendranagar</option>
         <option value="Tapi">Tapi</option>
         <option value="Vadodara City">Vadodara City</option>

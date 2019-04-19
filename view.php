@@ -257,7 +257,7 @@
       </label>
       </td>
 
-      <td colspan=""><input placeholder=" Enter Email ID" type="email" name="email" id="LastComplainantName" style="width:100% !important; padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
+      <td colspan=""><input placeholder=" Enter Email ID" type="email" required name="email" id="LastComplainantName" style="width:100% !important; padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
 
 
 
@@ -271,7 +271,7 @@
     </label>
     </td>
 
-    <td colspan=""><input type="text" name="phno" placeholder=" Enter Phone Number" id="LastComplainantName" style="width:100% !important; padding:6px;  border:1px solid #281859;" maxlength="10" value="" class="" onchange="" onblur=""></td>
+    <td colspan=""><input type="text" name="phno"required placeholder=" Enter Phone Number" id="LastComplainantName" style="width:100% !important; padding:6px;  border:1px solid #281859;" maxlength="10" value="" class="" onchange="" onblur=""></td>
 
 </tr>
 
@@ -283,7 +283,7 @@
     </label>
     </td>
 
-    <td colspan=""><input type="text" placeholder=" Enter Complaint ID" name="compid" id="LastComplainantName" style="width:100% !important; padding:6px;  border:1px solid #281859;" maxlength="10" value="" class="" onchange="" onblur=""></td>
+    <td colspan=""><input type="text" placeholder=" Enter Complaint ID" required name="compid" id="LastComplainantName" style="width:100% !important; padding:6px;  border:1px solid #281859;" maxlength="10" value="" class="" onchange="" onblur=""></td>
 
 </tr>
 

@@ -678,7 +678,7 @@
 
 <tr>
 <td colspan="4" align="center">
-  <button type="submit" name="submit">Submit Report</button>
+  <button type="submit" name="submit">Register</button>
   <button type="reset" value="Reset" name="">Reset</button></td>
 </tr>
 

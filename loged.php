@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+a<!DOCTYPE html>
 <html>
 <head>
-	 <meta http-equiv="refresh" content="1">
+
 	<title>
 
 	</title>
@@ -296,6 +296,8 @@ button:hover{
 I
 				</script>';
 
+				echo '<meta http-equiv="refresh" content="1">';
+
 			}
 			if(isset($_POST['reject']))
 			{
@@ -306,6 +308,7 @@ I
 				alert("Complaint Rejected!");
 I
 				</script>';
+				echo '<meta http-equiv="refresh" content="1">';
 
 			}
 

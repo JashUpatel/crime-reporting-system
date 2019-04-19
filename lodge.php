@@ -4,6 +4,12 @@
     global $emptyfield;
     global $compno;
     global $compid;
+    global $ef1;
+    global $ef2;
+    global $ef3;
+    global $ef4;
+    global $ef5;
+    global $ef6;
 
 
     if(isset($_POST['submit']))
@@ -275,6 +281,12 @@
         <b>Note:</b> Parameters marked with a <font color="red">*</font> are mandatory
         <?php echo $emptyfield; ?>
         <?php echo $compno; ?>
+        <?php echo $ef1 ;?>
+        <?php echo $ef2 ;?>
+        <?php echo $ef3 ;?>
+        <?php echo $ef4 ;?>
+        <?php echo $ef5 ;?>
+        <?php echo $ef6 ;?>
 
        </td>
         </tr>
@@ -300,7 +312,7 @@
     </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-      <td colspan="1"><input placeholder="  Name" style=""  type="text" name="firstname" id="firstname" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
+      <td colspan="1"><input placeholder="  Name"required style=""  type="text" name="firstname" id="firstname" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
     </div>
     </tr>
   </div>
@@ -320,7 +332,7 @@
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-        <td colspan="1"><input placeholder="  Middle name"style="" type="text" name="middlename" id="MiddleComplainantName" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
+        <td colspan="1"><input placeholder="  Middle name" required style="" type="text" name="middlename" id="MiddleComplainantName" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
       </div>
       </tr>
     </div>
@@ -339,7 +351,7 @@
       </div>
       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 
-        <td colspan="1"><input placeholder="  Surname"style="" type="text" name="lastname" id="LastComplainantName" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
+        <td colspan="1"><input placeholder="  Surname"style=""required type="text" name="lastname" id="LastComplainantName" style="padding:6px;  border:1px solid #281859;" maxlength="50" value="" class="" onchange="" onblur=""></td>
 
       </div>
       </tr>
@@ -383,7 +395,7 @@
       <!--  ********************************* row 4 col 4 input gender********************************************-->
 
       <td colspan="1">
-<input type="number" placeholder=" Age" min="18" Max="99" id="age" name="age" style="width: 50% !important;" value="">
+<input type="number" placeholder=" Age" min="18" Max="99" id="age" required name="age" style="width: 50% !important;" value="">
     </td>
 
     </div>
@@ -413,7 +425,7 @@
 
       <td colspan="1">
 
-        <textarea name="address" id="address" rows="4" cols="" placeholder="Residential Address" style=""></textarea>
+        <textarea name="address" id="address" rows="4" cols="" required placeholder="Residential Address" style=""></textarea>
       </td>
   </address>
 
@@ -430,7 +442,7 @@
       <!--  ********************************* row 5 col 4 input pin********************************************-->
 
       <td colspan="1">
-<input type="text" style="" maxlength="6" id="pin" pattern="[0-9]*" title="pin code must be Exactly 6 Digits Numeric Value" name="pin" value="" placeholder="City Pin Code">
+<input type="text" required style="" maxlength="6" id="pin" pattern="[0-9]*" title="pin code must be Exactly 6 Digits Numeric Value" name="pin" value="" placeholder="City Pin Code">
     </td>
 
     </div>
@@ -454,7 +466,7 @@
       <!--  ********************************* row 6 col 4 input pin********************************************-->
 
       <td colspan="1">
-<input type="email" style="" id="email" name="email" value="" placeholder="Email Address">
+<input type="email" required style="" id="email" name="email" value="" placeholder="Email Address">
     </td>
 
     </div>
@@ -471,7 +483,7 @@
 
       <td colspan="1">
 
-        <input type="text" pattern="[0-9]*" title="Contact Number Contain Exactly 10 Digits Numeric Value" name="phno" id="phone" value="" maxlength="10" style="" placeholder="Phone Number">
+        <input type="text" required pattern="[0-9]*" title="Contact Number Contain Exactly 10 Digits Numeric Value" name="phno" id="phone" value="" maxlength="10" style="" placeholder="Phone Number">
       </td>
 
     </div>
@@ -525,7 +537,7 @@
       <!--  ********************************* row 7 col 4 input pin********************************************-->
 
       <td colspan="1">
-<input type="text" pattern="[0-9]*" title="Aadhar Number Contain Exactly 12 Digits Numeric Value" style="" id="id_detail" name="id" maxlength="12" value="" placeholder="Identity Number">
+<input type="text" pattern="[0-9]*" required title="Aadhar Number Contain Exactly 12 Digits Numeric Value" style="" id="id_detail" name="id" maxlength="12" value="" placeholder="Identity Number">
     </td>
 
     </div>
@@ -582,15 +594,15 @@ Allowed file types: .pdf, .jpg.
 
           }else
           {
-            echo "The file is too large";
+            echo '<center style="color:red;">The file is too large</center>';
           }
 
         }else{
-          echo "there is an error";
+          echo '<center style="color:red;">there is an error</center>';
         }
 
       }else{
-        echo 'file type not allowed';
+        echo '<center style="color:red;">file type not allowed</center>';
       }
     }
       ?>
@@ -770,7 +782,7 @@ Allowed file types: .pdf, .jpg.
   </td>
 
   <td class="">
-  <input type="date" name="dates" id="d" class="calendar hasDatepick" attrtitle="FIRDatefrom" value="02/02/2019" onchange=";" onblur="validateDate(this,errorMsg);" onkeydown="return move();" onfocus="callCalender(this)" style="width: 90% !important; padding:6px;  border:1px solid #281859;" height="20"><font class="Label3">&nbsp;</font>
+  <input type="date" name="dates" id="d" required class="calendar hasDatepick" attrtitle="FIRDatefrom" value="02/02/2019" onchange=";" onblur="validateDate(this,errorMsg);" onkeydown="return move();" onfocus="callCalender(this)" style="width: 90% !important; padding:6px;  border:1px solid #281859;" height="20"><font class="Label3">&nbsp;</font>
   </td>
 
     </tr>
@@ -789,7 +801,7 @@ Allowed file types: .pdf, .jpg.
 
 
         <td colspan="1">
-          <input type="text" name="subject" id="subject" style="" maxlength="150" value="" class="" onchange="" onblur="" placeholder="Enter the type/matter of Complaint"></td>
+          <input type="text" name="subject" id="subject" required style="" maxlength="150" value="" class="" onchange="" onblur="" placeholder="Enter the type/matter of Complaint"></td>
 
         </tr>
 
@@ -806,7 +818,7 @@ Allowed file types: .pdf, .jpg.
 
 
           <td colspan="1">
-            <textarea class="form-control" rows="6" id="compdetail" name="compdetail" cols="" style="width:175%; padding:6px;border:1px solid #281859;" placeholder="Enter the Details of Complaint."></textarea>
+            <textarea class="form-control" rows="6" required id="compdetail" name="compdetail" cols="" style="width:175%; padding:6px;border:1px solid #281859;" placeholder="Enter the Details of Complaint."></textarea>
 
     </tr>
 
@@ -829,6 +841,7 @@ Allowed file types: .pdf, .jpg.
         <input type="file" name="up1" id="proofcase" style="" value="" class="" onchange="" onblur=""></td>
         <!-- <td><button style="height:50px !important;" name="proofattach">OK </button></td> -->
 <!--       </form> -->
+
       <?php
       global $success;
 
@@ -859,15 +872,15 @@ Allowed file types: .pdf, .jpg.
 
           }else
           {
-            echo "The file is too large";
+            echo '<center style="color:red;">The file is too large</center>';
           }
 
         }else{
-          echo "there is an error";
+          echo '<center style="color:red;">there is an error</center>';
         }
 
       }else{
-        echo 'file type not allowed';
+        echo '<center style="color:red;">file type not allowed</center>';
       }
     }
 
@@ -884,7 +897,7 @@ Allowed file types: .pdf, .jpg.
         <font color="RED">*</font>
         </label>
       <input style="width: 25% !important;" type="text" name="otp" value="" placeholder="Unique Code">
-      <button  style="height:50px !important;"type="submit" value="submit" name="button">Verify OTP</button>
+      <button  style="height:50px !important;"type="submit" value="submit" name="button">Send/Verify OTP</button>
     </td>
     </tr>
 
